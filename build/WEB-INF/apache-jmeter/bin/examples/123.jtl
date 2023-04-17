@@ -1,0 +1,7 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1628686245758,398,HTTP Request,200,,Thread Group 1-1,text,true,,353687,306,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,70,0,52
+1628686245758,73,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,357,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,70,0,52
+1628686245833,323,HTTP Request-1,200,,Thread Group 1-1,text,true,,353330,153,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,250,0,203
+1628686246157,105,HTTP Request,200,,Thread Group 1-1,text,true,,353964,306,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,12,0,0
+1628686246157,12,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,357,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,12,0,0
+1628686246169,93,HTTP Request-1,200,,Thread Group 1-1,text,true,,353607,153,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,34,0,0

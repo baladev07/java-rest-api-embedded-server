@@ -1,0 +1,105 @@
+plugins {
+    id 'java'
+}
+buildDir =System.getProperty("user.home")+"/Home/project/build/WEB-INF"
+
+def sourceDir = System.getProperty("user.home")+"/Home/project"
+
+def dir = new File('.').absolutePath
+//def jarHomeDir = "${buildDir}/libs"
+
+repositories {
+    mavenCentral()
+}
+
+//task processPackageResources(type: Copy) {
+//    duplicatesStrategy = 'include'
+//}
+
+dependencies {
+//    implementation fileTree(dir: 'lib',include:'*.jar')
+    implementation group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.5.7.Final'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.testng:testng:7.1.0'
+    implementation group: 'org.json', name: 'json', version: '20220320'
+    implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    compileOnly 'javax.servlet:servlet-api:2.5'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'org.apache.tomcat:tomcat:10.1.7'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.75'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+
+
+
+
+
+
+
+
+
+}
+
+//test {
+//    useJUnitPlatform()
+//}
+
+//rootProject.tasks.named("processPackageResources") {
+//    duplicatesStrategy = 'include'
+//}
+
+task update {
+   dependsOn 'compileTestJava'
+    copy{
+        from "${dir}/conf"
+        into "${buildDir}/conf"
+    }
+    copy{
+        from "${dir}/apache-jmeter"
+        into "${buildDir}/apache-jmeter"
+    }
+
+    copy{
+        from "${sourceDir}/lib"
+        into  "${buildDir}/lib"
+    }
+
+    doLast {
+        copy{
+            from "${sourceDir}/resources"
+            into "${buildDir}/classes"
+        }
+    }
+
+}
+
+task createJar(type: Jar){
+    dependsOn  'compileJava'
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest{
+        attributes 'Implementation-Title': 'Gradle Jar project',
+                'Main-Class': 'com.ApplicationRunner.RunApplication'
+    }
+    archiveBaseName = 'Demo'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+//        resources {
+//            srcDirs = ['resources']
+//        }
+//        compileClasspath = fileTree ("${jarHomeDir}/lib")
+//        libsDirName = "${jarHomeDirName}/lib"
+//        output.classesDirs = "${buildDir}/classes"
+        java.destinationDirectory.set(file("${buildDir}/classes"))
+//        resources.destinationDirectory.set(file(System.getProperty("user.home")+"/Home/builds/tomcat/webapps/pro/WEB-INF/classes"))
+    }
+}

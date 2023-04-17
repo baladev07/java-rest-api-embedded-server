@@ -1,0 +1,7 @@
+
+1628659621491,482,HTTP Request,200,,Thread Group 1-1,text,true,,353688,306,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,77,0,59
+1628659621491,80,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,357,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,77,0,59
+1628659621574,399,HTTP Request-1,200,,Thread Group 1-1,text,true,,353331,153,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,297,0,253
+1628659621988,797,HTTP Request,200,,Thread Group 1-1,text,true,,353926,306,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,9,0,0
+1628659621988,9,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,357,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,9,0,0
+1628659621997,788,HTTP Request-1,200,,Thread Group 1-1,text,true,,353569,153,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,38,0,0

@@ -1,0 +1,4 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1628747722756,310,HTTP Request,Non HTTP response code: javax.net.ssl.SSLHandshakeException,Non HTTP response message: Received fatal alert: bad_certificate,Thread Group 1-1,text,false,,4170,153,1,1,https://detective.localzoho.com:443/api/v1/totido/apicoverage,71,0,51
+1628747722756,76,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,300,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,71,0,51
+1628747722833,233,HTTP Request-1,Non HTTP response code: javax.net.ssl.SSLHandshakeException,Non HTTP response message: Received fatal alert: bad_certificate,Thread Group 1-1,text,false,,3870,0,1,1,https://detective.localzoho.com:443/api/v1/totido/apicoverage,0,0,233

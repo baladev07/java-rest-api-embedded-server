@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RequestMapper>
-    <parameter name="/customer" source="com.Customer.CustomerAPIHandler" type="CustomerList" value="GET">
-      <temp decrip="hii"/>
-    </parameter>
-
-</RequestMapper>

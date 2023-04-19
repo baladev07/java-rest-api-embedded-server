@@ -1,6 +1,0 @@
-Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Std. Dev.
-Expenses (GET),8,377,267,613,698,698,249,698,100.00%,.0,.0,167.03
-/expenses-unreported-50,8,311,206,549,598,598,186,598,100.00%,.0,.0,157.47
-/expenses-All-50,8,32,29,35,52,52,25,52,100.00%,.0,.0,7.95
-/expenses-Expired-50,8,33,33,36,48,48,27,48,100.00%,.0,.0,6.16
-TOTAL,32,188,52,549,598,698,25,698,100.00%,.0,.0,195.09

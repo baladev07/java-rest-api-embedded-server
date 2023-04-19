@@ -35,8 +35,8 @@ class RequestMapper{
         @XmlAttribute(name="method")
         protected String method;
 
-        @XmlAttribute(name="CVName")
-        protected String CVName;
+        @XmlAttribute(name="QName")
+        protected String QName;
 
         @XmlAttribute(name="EntityName")
         protected  String entityName;
@@ -68,12 +68,12 @@ class RequestMapper{
             return uri;
         }
         public void setUri(String uri) {this.uri = uri;}
-        public String getCVName()
+        public String getQName()
         {
-            return CVName;
+            return QName;
         }
-        public void setCVName(String CVName){
-            this.CVName=CVName;
+        public void setQName(String QName){
+            this.QName=QName;
         }
 
         @XmlElement(name="parameter")

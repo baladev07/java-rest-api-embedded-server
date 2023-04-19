@@ -1,4 +1,0 @@
-
-1628696338367,312,HTTP Request,200,,Thread Group 1-1,text,true,,353702,306,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,30,0,20
-1628696338367,30,HTTP Request-0,301,Moved Permanently,Thread Group 1-1,text,true,,357,153,1,1,http://detective.localzoho.com/api/v1/totido/apicoverage,30,0,20
-1628696338397,282,HTTP Request-1,200,,Thread Group 1-1,text,true,,353345,153,1,1,https://detective.localzoho.com/api/v1/totido/apicoverage,84,0,41

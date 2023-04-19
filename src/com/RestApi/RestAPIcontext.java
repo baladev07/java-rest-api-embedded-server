@@ -1,6 +1,5 @@
 package com.RestApi;
 
-import com.Model.customer;
 import com.Util.Util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hibernate.Session;
@@ -116,10 +115,10 @@ public class RestAPIcontext
     public String getSqlQuery() throws JAXBException {
         String query="";
         RequestMapper.Request request = getRequestMapper();
-        String CVName= request.getCVName();
+        String CVName= request.getQName();
         try{
 //            System.out.print(Util.homeDir);
-            InputStream inputStream = new FileInputStream(Util.homeDir+"/conf/queries.yml");
+            InputStream inputStream = new FileInputStream(System.getProperty("user.dir")+"/conf/queries.yml");
             Yaml yaml=new Yaml();
             Map<String,String> queryMap= (Map<String, String>) yaml.load(inputStream);
             query=queryMap.get(CVName);

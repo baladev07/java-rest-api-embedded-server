@@ -1,7 +1,5 @@
 package com.ApplicationRunner;
 
-import com.Util.JmeterHandler;
-
 public class RunApplication {
 
     public static void main(String args[])

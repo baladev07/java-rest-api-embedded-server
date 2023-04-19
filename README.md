@@ -30,7 +30,6 @@ public static void startServer() throws Exception {
 when you run the program it will start the tomcat web server at port 8081 and expose out the  all the end points mention below:
 
 This API provides HTTP endpoint's and tools for the following: 
-    
     - Create a product: `POST/api/user`
     - Update a product: `PUT/api/user/{id}`
     - Delete a product (by id): `DELETE/api/user/{id}` 

@@ -1,11 +1,11 @@
-# java-rest-api-embedded-server
+# Java Rest API with java servlet
 
-This project contains Java-based REST API that allows users to perform CRUD operations on a user entity. The API is built using Java 8, javax.servlet, and an embedded Tomcat server. The API uses Hibernate to interact with a MySQL database for persistence.
+This project contains Java-based REST API that allows users to perform CRUD operations on a user entity. The API is built using Java 8, javax.servlet, and an embedded Tomcat server. The API uses Hibernate and JDBC to interact with a MySQL database for persistence.
 
 # Getting Started
-To get started with [Project Name], you will need to have Java and MySQL on your machine. You can download Java from the Oracle website, MySQL from the MySQL website.
+To get started with this project, you will need to have Java and MySQL on your machine. You can download Java from the Oracle website, MySQL from the MySQL website.
 
-Once you have these dependencies installed, you can clone this repository and import the project into your favorite Java IDE. You can then run the API by launching the embedded Tomcat server.
+Once you have these dependencies installed, you can clone this repository and import the project into your favorite Java IDE. You can then run the Application this start the embedded Tomcat server.
 
 # API Endpoints
 
@@ -30,59 +30,104 @@ public static void startServer() throws Exception {
 when you run the program it will start the tomcat web server at port 8081 and expose out the  all the end points mention below:
 
 This API provides HTTP endpoint's and tools for the following: 
-    - Create a product: `POST/api/user`
-    - Update a product: `PUT/api/user/{id}`
-    - Delete a product (by id): `DELETE/api/user/{id}` 
-    - Get all users: `GET/api/users`
+- Create a User: `POST/api/user`
+- Update a User: `PUT/api/user/{id}`
+- Delete a User (by id): `DELETE/api/user/{id}` 
+- Get all Users: `GET/api/users`
+
+To add multiple end points and validation i have added all the end points in XML file and  used parser to read all the attributes for every request and 
+
+```xml
+<request uri="/users" class="com.Users.UsersHandler" QName="UserList" method="GET" EntityName="com.Model.UserObject">
+        <Parameter name="" source="" type="" value=""/>
+    </request>
+```  
 
 
-Creates a new user in the database. The request body should include a JSON object with the following properties:
+# Details
 
-username (string, required): The username of the new user.
-useremail (string, required): The email address of the new user.
-The API will return a JSON object with the following properties:
+`GET/api/users`
 
-id (integer): The ID of the new user.
-username (string): The username of the new user.
-useremail (string): The email address of the new user.
-Get All Users
-GET /api/user
+This end point return list of users.
 
-Returns a list of all users in the database. The API will return a JSON array of user objects, where each user object has the following properties:
+```json
+{
+    "message": "success",
+    "Result": {
+        "users": [
+            {
+                "created_time": 0,
+                "user_role": 0,
+                "last_modified_time": 0,
+                "user_id": 1,
+                "user_name": "elon"
+            }
+        ]
+    }
+}
 
-id (integer): The ID of the user.
-username (string): The username of the user.
-useremail (string): The email address of the user.
-Get a User
-GET /api/user/{id}
+```
+- 200 - OK: Everything worked as expected.
 
-Returns the user with the specified ID. The API will return a JSON object with the following properties:
+- 400 - Internal Server Error: something went wrong on API.
 
-id (integer): The ID of the user.
-username (string): The username of the user.
-useremail (string): The email address of the user.
-Update a User
-PUT /api/user/{id}
+To map the request to the class, class instance is created using the address of the class mentioned in xml file.
 
-Updates the user with the specified ID. The request body should include a JSON object with the following properties:
+```java
+Class classObj= Class.forName(classname);
+APIHandler obj= (APIHandler) classObj.newInstance();
 
-username (string): The new username for the user.
-useremail (string): The new email address for the user.
-The API will return a JSON object with the updated user information, including the ID, username, and email address.
+```
 
-Delete a User
-DELETE /api/user/{id}
+To fetch all users execute the query sql connector is used to connect to database and execute the query.
 
-Deletes the user with the specified ID from the database. The API will return a JSON object with the following properties:
-
-id (integer): The ID of the deleted user.
-username (string): The username of the deleted user.
-useremail (string): The email address of the deleted user.
-Contributing
-If you'd like to contribute to [Project Name], please fork the repository and create a pull request with your changes. We welcome contributions of all types, including bug fixes, new features, and documentation improvements.
+```java
+public static Connection getConnection() {
+        Connection connection=null;
+        try{
+            String url = "jdbc:mysql://localhost:3306/test";
+            String username = "root";
+            connection=DriverManager.getConnection(url, username, "");;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+```   
 
 # Technologies used
 
+- java 8
+- apache tomcat
+- mysql connector
+- h2
+- object mapper
+- gradle
 
+# Compile and package
+
+The api was developer to run with an `jar`. In order to generate jar you should run:
+```
+gradle createJar
+```
+This command will compile and generate a jar at the target directory.
+
+# Execution
+
+To create a database and populate tables.
+
+- Go to the conf/ from the terminal and execute the following `shell command`
+```shell
+sh mysql.sh
+```
+# Run
+
+In order to run the API , run the jar as following:
+
+```command
+java -jar Demo.jar
+```
 # License
-[Project Name] is licensed under the MIT license. Please see the LICENSE file for more information.
+This project is licensed under the MIT license. Please see the LICENSE file for more information.
